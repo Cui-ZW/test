@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Turbulence Research Lab</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/style.css">
+  <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+      <!-- Stylesheet -->
+
+  <!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css"> -->
+  <!-- <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script> -->
+  <!-- <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script> -->
+  <!-- <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script> -->
+   <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="bootstrap-4.0.0-dist/js/jquery-3.2.1.min.js" ></script>
+    <script src="bootstrap-4.0.0-dist/js/popper-1.12.5.min.js"></script>
+    <!-- <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+     <script src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+     
+     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="keywords" content="百度地图,百度地图API，百度地图自定义工具，百度地图所见即所得工具" />
+<meta name="description" content="百度地图API自定义地图，帮助用户在可视化操作下生成百度地图" />
+<title>百度地图API自定义地图</title>
+<!--引用百度地图API-->
+<style type="text/css">
+    html,body{margin:0;padding:0;}
+    .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+    .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+</head>
+  <style>
+  .fakeimg {
+      height: 200px;
+      background: #aaa;
+  }
+  .carousel-indicators{
+
+    bottom: 30px;
+    margin-bottom: 30px;
+    
+
+}
+  .carousel img{
+      <!-- width: 100%; -->
+      height: 50%;
+  }
+  .ban img {
+        width: 100%;
+      height: 100%;
+      }
+  .card-columns img{
+       height: 150px;
+       width: 138px;
+  }
+ .card-columns {
+    column-count: 3;
+}
+  .card {
+     height:18rem
+   }
+   .mymap img{
+          height: 300px;
+   }
+   .blog-thumbnail img{
+       height: 150px;
+      max-width: 138px;
+  }
+  .carousel-indicators li {
+    display: inline-block;
+    background-color: rgba(0,0,0,0.2);
+}
+  .carousel-indicators .active{
+background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    height: 50px;
+    width: 50px;
+    outline: black;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-size: 50%, 50%;
+    border-radius: 50%;
+    bottom: 30px;
+}
+
+  </style>
+</head>
+<body>
+
+<div class="container" style="margin-top:0px">
+<!-- <div class="jumbotron text-center" style="margin-bottom:0"> -->
+  <!-- <h1>Turbulence Research Lab</h1> -->
+  <!-- <p>Tsinghua University, Beijing,China</p>  -->
+<!-- </div> -->
+<!-- <div class="card bg-light text-white"> -->
+<div class="ban">
+  <img class="img-fluid" src="imag/banner_final.jpg" alt="Card image">
+  </div>
+  <!-- <div class="card-img-overlay"> -->
+    <!-- <h5 class="card-title">Card title</h5> -->
+    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+    <!-- <p class="card-text">Last updated 3 mins ago</p> -->
+  <!-- </div> -->
+<!-- </div> -->
+<!-- 导航栏 -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+	  
+   <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          People
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="people-Prof.html">Professors</a>
+          <a class="dropdown-item" href="people-Stud.html">Students</a>
+         <a class="dropdown-item" href="people-Visit.html">Visitors</a>
+          <a class="dropdown-item" href="people-Alum.html">Alumni</a>
+        </div>
+      </li>
+	   <li class="nav-item">
+        <a class="nav-link" href="Research.html">Research</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Publication
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="Publication-1.html">International Journal</a>
+          <a class="dropdown-item" href="Publication-2.html">International Conference</a>
+          <a class="dropdown-item" href="Publication-3.html">Domestic Journal</a>
+		  <a class="dropdown-item" href="Publication-4.html">Domestic Conference</a>
+        </div>
+      </li>
+	  <li class="nav-item">
+        <a class="nav-link" href="Teaching.html">Teaching</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="News.html">News</a>
+      </li>
+	   <li class="nav-item">
+        <a class="nav-link" href="Gallery.html">Gallery</a>
+      </li>
+	   <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="Link-1.html">Society</a>
+          <a class="dropdown-item" href="Link-2.html">Research Group</a>
+          <a class="dropdown-item" href="Link-3.html">Journal</a>
+		  <a class="dropdown-item" href="Link-4.html">Conference</a>
+        </div>
+      </li>
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0"> -->
+      <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+      <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+    <!-- </form> -->
+  </div>
+</nav>
+</div>
+
+<div class="container" style="margin-top:30px"><!-- 介绍和轮播 -->
+<!-- <div class="row"> -->
+    <div class="col-sm">
+    <h1>Introduction</h1>
+      <p>Turbulence Research Lab was established in 19xx.<br><br> <br><br> <br><br> </p>
+    </div>
+    <div class="col-sm">
+ <!-- 第二部分 开始    -->
+     <div id="demo" class="carousel slide" data-ride="carousel">
+ 
+  <!-- 指示符 -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+    <!-- <li data-target="#demo" data-slide-to="3"></li> -->
+    <!-- <li data-target="#demo" data-slide-to="4"></li> -->
+  </ul>
+ 
+  <!-- 轮播图片 -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    <dl class="row">
+            <dd class="col-sm-6 text-justify"><h5>Rotating Turbulent Channel Flow</h5>Coherent structures in streamwise rotating turbulent channel flow are studied by DNS and LES. Streamwise elongated large-scale vortices are observed through the conditional-sampling method. These structures are dominated by cyclones at unity rotation number. The cyclones prefer to develop in the lower and upper half channels, while the anti-cyclones, if exist, occur in the central region of the channel. This preference of the large-scale vortices in different regions contributes to the secondary flow.  <a href="#" target="_blank" >(Dai, Huang, Xu. 2019. PoF)</a></dd>
+                <dd class="col-sm-6">
+                <img src="imag/homeCarousel/2019-Dai.jpg" class="figure-img img-fluid  rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+               </dd>
+    </dl>
+            
+    </div>
+    <div class="carousel-item">
+    <dl class="row">
+                 <dd class="col-sm-6 text-justify"><h5>Drag Reduction</h5>Drag reduction at the external surface of a cylinder in turbulent flows along the axial direction by circumferential wall motion is studied by direct numerical simulations. The circumferential wall oscillation can lead to drag reduction due to the formation of a Stokes layer, but it may also result in centrifugal instability, which can enhance turbulence and increase drag. The figure shows that the rotation-induced vortices are closely correlated with the high skin friction when the streamwise-travelling waves of circumferential wall velocity is applied to the flow. <a href="#" target="_blank" >(Zhao, Huang, Xu. 2019. JFM)</a></dd>
+                   <dd class="col-sm-6"> 
+                <img src="imag/homeCarousel/2019-Zhao.jpg" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+               </dd>
+    </dl>
+    </div>
+    
+    <div class="carousel-item">
+          
+               <dl class="row">
+                 <dd class="col-sm-6 text-justify"><h5>Stability Analysis of Ellipsoids in Shear Flow</h5>This paper has addressed the questions of the stability of rotations of spheroidal and tri-axial ellipsoids with various particle inertia and particle shapes. In addition, the stability difference between prefect spheroids and slightly tri-axial elongated/flat ellipsoids is also discussed. The results show that the stability of tri-axial ellipsoids is sensitive to shape at small St numbers, but the stabilities for the longestaxial and the shortest-axial rotations become neutrally stable with very large St numbers.<a href="#" target="_blank" >(Cui, Zhao et al. 2019. PoF)</a></dd>
+                   <dd class="col-sm-6"> 
+                <img src="imag/homeCarousel/2019-Cui.jpg" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+               </dd>
+               </dl>
+    </div>
+    <!-- <div class="carousel-item"> -->
+                  <!-- <dl class="row"> -->
+                 <!-- <dt class="col-sm-6 text-justify">Coherent structures in streamwise rotating turbulent channel flow are studied by DNS and LES. Streamwise elongated large-scale vortices are observed through the conditional-sampling method. These structures are dominated by cyclones at unity rotation number. The cyclones prefer to develop in the lower and upper half channels, while the anti-cyclones, if exist, occur in the central region of the channel. This preference of the large-scale vortices in different regions contributes to the secondary flow. The figure shows the large-scale structures obtained via conditional-sampling method with Q2 criteria (a) and maximum pressure criteria. (Dai, Huang, Xu. 2019. PoF)</dt> -->
+                   <!-- <dd class="col-sm-6"> <div class="mycarousel"> -->
+                <!-- <img src="imag/homeCarousel/ad-04.jpg" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure."></div> -->
+               <!-- </dd> -->
+    <!-- </dl> -->
+    <!-- </div> -->
+     <!-- <div class="carousel-item"> -->
+                 <!-- <dl class="row"> -->
+                 <!-- <dt class="col-sm-6 text-justify">Coherent structures in streamwise rotating turbulent channel flow are studied by DNS and LES. Streamwise elongated large-scale vortices are observed through the conditional-sampling method. These structures are dominated by cyclones at unity rotation number. The cyclones prefer to develop in the lower and upper half channels, while the anti-cyclones, if exist, occur in the central region of the channel. This preference of the large-scale vortices in different regions contributes to the secondary flow. The figure shows the large-scale structures obtained via conditional-sampling method with Q2 criteria (a) and maximum pressure criteria. (Dai, Huang, Xu. 2019. PoF)</dt> -->
+                   <!-- <dd class="col-sm-6"> <div class="mycarousel"> -->
+                <!-- <img src="imag/homeCarousel/ad-05.jpg" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure."></div> -->
+               <!-- </dd> -->
+    <!-- </dl> -->
+    <!-- </div> -->
+  </div>
+ 
+  <!-- 左右切换按钮 -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+    </a>
+ 
+    </div>
+    </div>  <!-- 第二部分 结束   -->
+    
+  <!-- </div> -->
+    </div><!-- 介绍和轮播 结束 -->
+<div class="container" style="margin-top:10px">
+    <div class="row"> 
+ <div class="col-sm-8">   
+       <h2>Seminars</h2> 
+       <div class="row">   
+      <div class="col-sm-6">   
+        
+                            <!-- Single News Area -->
+                            <div class="single-blog-post d-flex style-6">
+                                <!-- Blog Thumbnail -->
+
+                                <!-- Blog Content -->
+                                <div class="blog-content">
+                                    <span class="post-date">15:30-16:30 March 20, 2019</span>
+                                    <a href="file/poster/poster_YangZX20190308.pdf" class="post-title text-dark">破碎波对大气湍流的影响</a>
+                                    <a href="#" class="post-author text-dark">By Zi-Xuan Yang</a>
+                                     <p>Room N414，<br>Mong Man Wai Sci. & Tec. Building </p>
+                                </div>
+                            </div>
+     </div>
+       <div class="col-sm-6"> 
+                            <!-- Single News Area -->
+                            <div class="single-blog-post d-flex style-6">
+                                <!-- Blog Content -->
+                                <div class="blog-content">
+                                    <span class="post-date">14:30-15:30 January 16, 2019</span>
+                                    <a href="file/poster/20190116_bernhard.pdf" class="post-title text-dark">Turbulent Aerosols</a>
+                                    <a href="#" class="post-author text-dark">By Prof. Bernhard Mehlig</a>
+                                    <p>Room N414，<br>Mong Man Wai Sci. & Tec. Building </p>
+                                </div>
+                            </div>
+       </div>
+       </div>
+         <a href="https://cloud.tsinghua.edu.cn/d/724d7bc6b5d74b5e8b04/">More</a>
+                                   
+     <h3>Quick links</h3>
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="http://www.tsinghua.edu.cn/publish/thu2018en/index.html" target="_blank">Tsinghua University</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">disabled</a>
+        </li>
+      </ul>
+
+    </div>
+     
+    <div class="col-sm-4"> 
+     <h2>Contact</h2>
+     <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="baidu-tab" data-toggle="tab" href="#baidu" role="tab" aria-controls="baidu" aria-selected="true">Baidu Map</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="google-tab" data-toggle="tab" href="#google" role="tab" aria-controls="google" aria-selected="false">Google Map</a>
+  </li>
+</ul>
+        <div class="tab-content" id="myTabContent">
+            <!-- <div class="tab-pane" id="google" role="tabpanel" aria-labelledby="google-tab">--> <!-- ##### Google Maps ##### --> 
+                        
+                   <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3056.108046097287!2d116.3350636!3d40.0060836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f056a756ed7305%3A0x879e09a50eeda875!2z5Lit5Zu95YyX5Lqs5biC5rW35reA5Yy65riF5Y2O5aSn5a2m!5e0!3m2!1szh-CN!2s!4v1553519028919" width="300" height="200" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+                        <!-- </div> -->
+                      
+                <div class="tab-pane fade fade show active" id="baidu" role="tabpanel" aria-labelledby="Baidu-tab">
+  <!-- <div style="width:500px;height:300px;border:#ccc solid 1px;" id="dituContent"></div> -->
+                <div style="width:300px;height:200px;border:#ccc solid 1px;" id="dituContent"></div>
+                </div>
+       </div>
+      <p>Room N706, Mong Man Wai (蒙民伟) Sci. & Tec. Building</p>
+      <p>Tsinghua University</p>
+        </div>
+                            </div>
+                            </div>
+
+<div class="container" style="margin-top:50px">
+<!-- <div class="jumbotron text-center" style="margin-bottom:0"> -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <p class="text-light">Turbulence Research Lab</p>
+</nav>
+</div>
+
+</body>
+<script type="text/javascript">
+    //创建和初始化地图函数：
+    function initMap(){
+        createMap();//创建地图
+        setMapEvent();//设置地图事件
+        addMapControl();//向地图添加控件
+    }
+    
+    //创建地图函数：
+    function createMap(){
+        var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+        var point = new BMap.Point(116.342269,40.01223);//定义一个中心点坐标(116.33974,40.013093)
+        map.centerAndZoom(point,18);//设定地图的中心点和坐标并将地图显示在地图容器中
+        window.map = map;//将map变量存储在全局
+    }
+    
+    //地图事件设置函数：
+    function setMapEvent(){
+        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+        <!-- map.enableScrollWheelZoom();//启用地图滚轮放大缩小 -->
+        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+        <!-- map.enableKeyboard();//启用键盘上下左右键移动地图 -->
+    }
+    
+    //地图控件添加函数：
+    function addMapControl(){
+        //向地图中添加缩放控件
+	var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+	map.addControl(ctrl_nav);
+        //向地图中添加缩略图控件
+	var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:0});
+	map.addControl(ctrl_ove);
+        //向地图中添加比例尺控件
+	var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+	map.addControl(ctrl_sca);
+    }
+    
+    
+    initMap();//创建和初始化地图
+</script>
+</html>
